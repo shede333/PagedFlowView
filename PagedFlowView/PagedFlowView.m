@@ -134,7 +134,7 @@
                 CGFloat origin = cell.frame.origin.y;
                 CGFloat delta = fabs(origin - offset);
                                 
-                [UIView beginAnimations:@"CellAnimation" context:nil];
+//                [UIView beginAnimations:@"CellAnimation" context:nil];
                 if (delta < _pageSize.height) {
                     cell.alpha = 1 - (delta / _pageSize.height) * (1 - _minimumPageAlpha);
                     
@@ -144,7 +144,7 @@
                     cell.alpha = _minimumPageAlpha;
                     cell.layer.transform = CATransform3DMakeScale(_minimumPageScale, _minimumPageScale, 1);
                 }
-                [UIView commitAnimations];
+//                [UIView commitAnimations];
             }
         }
         default:
