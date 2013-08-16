@@ -363,6 +363,12 @@
     
     [self refreshVisibleCellAppearance];//更新各个可见Cell的显示外貌
     
+    //sw修改bug-刷新后的页数小于之前的页数，_currentPageIndex就出现bug，这是临时解决方案
+    if (_currentPageIndex >= _pageCount) {
+        _currentPageIndex = 0;
+        [self scrollToPage:0];
+    }
+    
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
