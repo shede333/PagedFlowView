@@ -73,6 +73,8 @@ typedef enum{
 
 - (void)scrollToPage:(NSUInteger)pageNumber;
 
+- (UIView *)getCurrentView;
+
 @end
 
 

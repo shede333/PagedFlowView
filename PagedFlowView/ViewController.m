@@ -26,8 +26,8 @@
     hFlowView.delegate = self;
     hFlowView.dataSource = self;
     hFlowView.pageControl = hPageControl;
-    hFlowView.minimumPageAlpha = 0.3;
-    hFlowView.minimumPageScale = 0.9;
+    hFlowView.minimumPageAlpha = 0;
+    hFlowView.minimumPageScale = 1;
     
     vFlowView.delegate = self;
     vFlowView.dataSource = self;
@@ -61,7 +61,15 @@
 }
 
 - (void)flowView:(PagedFlowView *)flowView didScrollToPageAtIndex:(NSInteger)index {
-    NSLog(@"Scrolled to page # %d", index);
+    NSLog(@"Scrolled to page # %d ", index);
+    
+//    UIView *tmpView = [[UIView alloc] initWithFrame:CGRectMake(arc4random()%130, arc4random()%130, 10+arc4random()%130, 10+arc4random()%130)];
+//    tmpView.backgroundColor = [UIColor colorWithRed:(arc4random()%255)/255
+//                                              green:(arc4random()%255)/255
+//                                               blue:(arc4random()%255)/255
+//                                              alpha:1];
+//    [[flowView getCurrentView] addSubview:tmpView];
+//    NSLog(@"Scrolled to page # %d  - %@", index,NSStringFromCGRect(tmpView.frame));
 }
 
 - (void)flowView:(PagedFlowView *)flowView didTapPageAtIndex:(NSInteger)index{

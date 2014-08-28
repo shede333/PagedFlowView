@@ -462,15 +462,24 @@
             break;
     }
     
+    NSInteger tmpIndex = _currentPageIndex;
+    _currentPageIndex = pageIndex;
+    
     if (pageControl && [pageControl respondsToSelector:@selector(setCurrentPage:)]) {
         [pageControl setCurrentPage:pageIndex];
     }
     
-    if ([_delegate respondsToSelector:@selector(flowView:didScrollToPageAtIndex:)] && _currentPageIndex != pageIndex) {
+    if ([_delegate respondsToSelector:@selector(flowView:didScrollToPageAtIndex:)] && tmpIndex != pageIndex) {
         [_delegate flowView:self didScrollToPageAtIndex:pageIndex];
     }
     
-    _currentPageIndex = pageIndex;
+    
+}
+
+#pragma mark - Function - Public
+
+- (UIView *)getCurrentView{
+    return _cells[_currentPageIndex];
 }
 
 @end
